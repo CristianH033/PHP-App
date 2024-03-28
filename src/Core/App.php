@@ -8,11 +8,16 @@ class App
 {
     private Request $request;
     private Router $router;
+    private ExceptionHandler $appExceptionHandler;
 
     public function __construct()
     {
+        $this->appExceptionHandler = new ExceptionHandler();
         $this->request = new Request();
         $this->router = Router::getInstance();
+
+        $this->setApplicationExceptionHandler();
+        $this->loadEnvironmentVariables();
         $this->loadRoutes();
     }
 
@@ -32,6 +37,11 @@ class App
         } else {
             throw new Exception("Routes file not found " . $routesFile);
         }
+    }
+
+    private function setApplicationExceptionHandler()
+    {
+        set_exception_handler($this->appExceptionHandler);
     }
 
     private function loadEnvironmentVariables()
