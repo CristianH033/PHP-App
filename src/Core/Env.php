@@ -2,7 +2,6 @@
 
 namespace NewsApp\Core;
 
-use App\Core\Exceptions\MissingEnvFileException;
 use Dotenv\Dotenv;
 
 class Env
@@ -15,7 +14,20 @@ class Env
 
     public static function get(string $key, $default = null)
     {
-        return $_ENV[$key] ?? $default;
+        if (isset($_ENV[$key])) {
+            return match ($_ENV[$key]) {
+                'true' => true,
+                'false' => false,
+                default => $_ENV[$key],
+            };
+        }
+
+        return $default;
+    }
+
+    public static function set(string $key, $value)
+    {
+        $_ENV[$key] = $value;
     }
 
     public static function getAll()
