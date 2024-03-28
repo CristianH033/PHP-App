@@ -2,7 +2,7 @@
 
 namespace NewsApp\Core;
 
-use Exception;
+use NewsApp\Core\Exceptions\NotFoundException;
 
 class Router
 {
@@ -90,7 +90,7 @@ class Router
             }
         }
 
-        throw new Exception('No se pudo encontrar la ruta', 404);
+        throw new NotFoundException('Página no encontrada');
     }
 
     private function getControllerInfo($path, $httpMethod): ?array
