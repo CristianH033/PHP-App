@@ -1,0 +1,19 @@
+{
+    "name": "home/news-app",
+    "version": "1.0.0",
+    "description": "News Blog app",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "NewsApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cristian David Home",
+            "email": "cristian_david033@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
