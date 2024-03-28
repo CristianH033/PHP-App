@@ -31,7 +31,7 @@ class App
 
     private function loadRoutes()
     {
-        $routesFile = __DIR__ . DIRECTORY_SEPARATOR . '../Config/routes.php';
+        $routesFile = __DIR__ . DIRECTORY_SEPARATOR . '../Routes/web.php';
         if (file_exists($routesFile)) {
             require $routesFile;
         } else {
