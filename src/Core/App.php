@@ -2,31 +2,50 @@
 
 namespace NewsApp\Core;
 
+use Exception;
+
 class App
 {
     private Request $request;
+    private Router $router;
 
     public function __construct()
     {
         $this->request = new Request();
+        $this->router = Router::getInstance();
+        $this->loadRoutes();
     }
 
     public function run()
     {
-        $scheme = $this->request->getScheme();
-        $httpMethod = $this->request->getMethod();
-        $host = $this->request->getHost();
         $path = $this->request->getPath();
-        $queryParams = $this->request->getQueryParams();
-        $ip = $this->request->getIp();
+        $httpMethod = $this->request->getMethod();
 
-        header('Content-Type: text/plain');
+        $this->router->dispatch($path, $httpMethod);
+    }
 
-        echo "Scheme: {$scheme}" . PHP_EOL;
-        echo "HTTP Method: {$httpMethod}" . PHP_EOL;
-        echo "Host: {$host}" . PHP_EOL;
-        echo "Path: {$path}" . PHP_EOL;
-        echo "Query Params: " . json_encode($queryParams) . PHP_EOL;
-        echo "IP: {$ip}" . PHP_EOL;
+    private function loadRoutes()
+    {
+        $routesFile = __DIR__ . DIRECTORY_SEPARATOR . '../Config/routes.php';
+        if (file_exists($routesFile)) {
+            require $routesFile;
+        } else {
+            throw new Exception("Routes file not found " . $routesFile);
+        }
+    }
+
+    private function loadEnvironmentVariables()
+    {
+        // Cargar variables de entorno desde .env
+    }
+
+    private function registerServices()
+    {
+        // Registrar proveedores de servicios
+    }
+
+    private function configureRouting()
+    {
+        // Configurar el enrutamiento
     }
 }
