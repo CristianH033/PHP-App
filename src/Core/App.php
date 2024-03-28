@@ -18,6 +18,7 @@ class App
 
         $this->setApplicationExceptionHandler();
         $this->loadEnvironmentVariables();
+        $this->loadConfiguration();
         $this->loadRoutes();
     }
 
@@ -50,6 +51,13 @@ class App
         $envFile = '.env';
 
         Env::load($rootPath, $envFile);
+    }
+
+    private function loadConfiguration()
+    {
+        Config::load('app');
+        // Config::load('database');
+        // Config::load('routes');
     }
 
     private function registerServices()
