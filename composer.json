@@ -15,5 +15,8 @@
             "email": "cristian_david033@hotmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }

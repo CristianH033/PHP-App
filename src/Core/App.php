@@ -46,7 +46,10 @@ class App
 
     private function loadEnvironmentVariables()
     {
-        // Cargar variables de entorno desde .env
+        $rootPath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
+        $envFile = '.env';
+
+        Env::load($rootPath, $envFile);
     }
 
     private function registerServices()
