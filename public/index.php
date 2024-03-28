@@ -1,3 +1,8 @@
 <?php
 
-echo "Hello Wolrd!";
+use NewsApp\Core\App;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$app = new App();
+$app->run();
