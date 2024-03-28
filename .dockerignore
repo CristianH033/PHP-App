@@ -1,0 +1,7 @@
+.devcontainer
+.vscode
+.git
+.gitignore
+.dockerignore
+vendor
+docker-compose.yml
