@@ -1,23 +1,39 @@
 <?php
 
+use NewsApp\Core\Request;
 use NewsApp\Core\Router;
 
-Router::get('/', function () {
-    echo "Hola Mundo";
+Router::get('/', function (Request $request) {
+    return view('simple-page', [
+        'title' => 'Hello World!',
+        'content' => 'Lorem ipsum dolor sit, amet consectetur...'
+    ]);
 });
 
-Router::get('path/', function () {
-    echo "Path";
+Router::get('path/', function (Request $request) {
+    return view('simple-page', [
+        'title' => 'Path',
+        'content' => 'Lorem ipsum dolor sit, amet consectetur...'
+    ]);
 });
 
-Router::get('path/other/', function () {
-    echo "Other Path";
+Router::get('path/other/', function (Request $request) {
+    return view('simple-page', [
+        'title' => 'Other Path',
+        'content' => 'Lorem ipsum dolor sit, amet consectetur...'
+    ]);
 });
 
-Router::get('/path/{param1}', function ($param1) {
-    echo "Param1: {$param1}";
+Router::get('/path/{param1}', function (Request $request, string $param1) {
+    return view('simple-page', [
+        'title' => 'Param1: ' . $param1,
+        'content' => 'Lorem ipsum dolor sit, amet consectetur...'
+    ]);
 });
 
-Router::get('/path/{param1}/{param2}', function ($param1, $param2) {
-    echo "Param1: {$param1} - Param2: {$param2}";
+Router::get('/path/{param1}/{param2}', function (Request $request, string $param1, string $param2) {
+    return view('simple-page', [
+        'title' => 'Param1: ' . $param1 . ' Param2: ' . $param2,
+        'content' => 'Lorem ipsum dolor sit, amet consectetur...'
+    ]);
 });

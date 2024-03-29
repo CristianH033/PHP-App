@@ -27,12 +27,12 @@ class App
         $path = $this->request->getPath();
         $httpMethod = $this->request->getMethod();
 
-        $this->router->dispatch($path, $httpMethod);
+        $this->router->dispatch($path, $httpMethod, $this->request);
     }
 
     private function loadRoutes()
     {
-        $routesFile = __DIR__ . DIRECTORY_SEPARATOR . '../Routes/web.php';
+        $routesFile = srcPath() . DIRECTORY_SEPARATOR . 'Routes/web.php';
         if (file_exists($routesFile)) {
             require $routesFile;
         } else {
@@ -56,6 +56,7 @@ class App
     private function loadConfiguration()
     {
         Config::load('app');
+        Config::load('views');
         // Config::load('database');
         // Config::load('routes');
     }

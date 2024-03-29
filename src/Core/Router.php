@@ -71,13 +71,13 @@ class Router
         return ['uri' => $parsedUri, 'parameterNames' => $parameterNames];
     }
 
-    public function dispatch(string $path, string $httpMethod)
+    public function dispatch(string $path, string $httpMethod, Request $request): mixed
     {
         $controllerInfo = $this->getControllerInfo($path, $httpMethod);
 
         if ($controllerInfo) {
             $controller = $controllerInfo['controller'];
-            $parameters = $controllerInfo['parameters'];
+            $parameters = [$request, ...$controllerInfo['parameters']];
 
             if (is_callable($controller)) {
                 return call_user_func_array($controller, array_values($parameters));
