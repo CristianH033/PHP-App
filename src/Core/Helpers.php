@@ -19,3 +19,8 @@ function request(): Request
 {
     return (new Request());
 }
+
+function abort(int $code, string $message = "Undefined error"): never
+{
+    throw new HttpException($message, $code);
+}
