@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'views_path' => __DIR__ . '/../App/Views',
+    'views_path' => srcPath() . DIRECTORY_SEPARATOR . 'Views',
 ];

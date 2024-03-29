@@ -7,12 +7,11 @@ use RuntimeException;
 
 class View
 {
-    private static $instance;
+    private static ?View $instance = null;
     private Engine $engine;
 
     private function __construct(string $viewsPath)
     {
-        self::$instance = $this;
         $this->engine = new Engine($viewsPath);
     }
 
@@ -20,7 +19,7 @@ class View
     {
         if (self::$instance === null) {
             $viewsPath = $viewsPath ?: config('views.views_path');
-            new self($viewsPath);
+            self::$instance = new self($viewsPath);
         }
 
         return self::$instance;
