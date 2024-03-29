@@ -37,7 +37,9 @@ RUN docker-php-ext-install zip \
     pcntl \
     pdo_mysql \
     pdo_pgsql \
-    gd;
+    gd \
+    bcmath \
+    opcache;
 
 RUN php -r 'var_dump(gd_info());'
 
