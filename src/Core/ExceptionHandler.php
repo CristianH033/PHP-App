@@ -23,7 +23,14 @@ class ExceptionHandler
     {
         http_response_code($statusCode);
 
+        $errorTitle = "Error {$statusCode}: " . match ($statusCode) {
+            404 => "Not found",
+            500 => "Internal Server Error",
+            default => "Undefined error",
+        };
+
         $data = [
+            "exceptionTitle" => $errorTitle,
             "exceptionName" => $exception::class,
             "errorMessage" => $exception->getMessage(),
             "errorCode" => $exception->getCode(),

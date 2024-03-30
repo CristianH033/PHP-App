@@ -1,3 +1,7 @@
+<?php
+
+/** @var League\Plates\Template\Template $this */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

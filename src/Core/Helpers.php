@@ -50,3 +50,10 @@ function srcPath(): string
 {
     return rootPath() . DIRECTORY_SEPARATOR . 'src';
 }
+
+function dd(...$args): void
+{
+    foreach ($args as $arg) {
+        var_dump($arg);
+    }
+}

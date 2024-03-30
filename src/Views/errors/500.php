@@ -1,14 +1,16 @@
 <?php
 
-/** @var League\Plates\Template\Template $this */
-$title ??= 'Internal Server Error';
-$message ??= 'An internal server error occurred.';
+$exceptionTitle ??= 'Internal Server Error';
+$exceptionName ??= 'Internal Server Error';
+$errorMessage ??= 'An internal server error occurred.';
 $trace ??= '';
-$this->layout('layout', ['title' => $this->e($title)]);
+
+/** @var League\Plates\Template\Template $this */
+$this->layout('layout', ['title' => $this->e($exceptionTitle)]);
 ?>
 
-<h1><?= $this->e($title) ?></h1>
-<p><?= $this->e($message) ?></p>
+<h1><?= $this->e($exceptionName) ?></h1>
+<p><?= $this->e($errorMessage) ?></p>
 <?php if (config('app.debug', false)) { ?>
     <pre><?= $this->e($trace) ?></pre>
 <?php } ?>
