@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libfreetype6-dev \
     libonig-dev \
     libpq-dev \
+    zlib1g-dev \
     curl
 
 # Clear cache
