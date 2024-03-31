@@ -20,7 +20,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "vlucas/phpdotenv": "^5.6",
-        "league/plates": "^3.5"
+        "vlucas/phpdotenv": "^5.6"
     }
 }

@@ -5,12 +5,12 @@ $exceptionName ??= 'Internal Server Error';
 $errorMessage ??= 'An internal server error occurred.';
 $trace ??= '';
 
-/** @var League\Plates\Template\Template $this */
-$this->layout('layout', ['title' => $this->e($exceptionTitle)]);
+/** @var NewsApp\Core\Template $this */
+$this->layout('layout', ['title' => $this->escape($exceptionTitle)]);
 ?>
 
-<h1><?= $this->e($exceptionName) ?></h1>
-<p><?= $this->e($errorMessage) ?></p>
+<h1><?= $this->escape($exceptionName) ?></h1>
+<p><?= $this->escape($errorMessage) ?></p>
 <?php if (config('app.debug', false)) { ?>
-    <pre><?= $this->e($trace) ?></pre>
+    <pre><?= $this->escape($trace) ?></pre>
 <?php } ?>

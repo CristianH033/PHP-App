@@ -2,17 +2,17 @@
 
 namespace NewsApp\Core;
 
-use League\Plates\Engine;
+use NewsApp\Core\TemplateEngine;
 use RuntimeException;
 
 class View
 {
     private static ?View $instance = null;
-    private Engine $engine;
+    private TemplateEngine $engine;
 
     private function __construct(string $viewsPath)
     {
-        $this->engine = new Engine($viewsPath);
+        $this->engine = new TemplateEngine($viewsPath);
     }
 
     public static function getInstance(string $viewsPath = null): self
@@ -60,6 +60,6 @@ class View
 
     private function exists(string $view): bool
     {
-        return $this->engine->exists($view);
+        return $this->engine->templateExists($view);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-/** @var League\Plates\Template\Template $this */
+/** @var NewsApp\Core\Template $this */
 $this->layout('layout', ['title' => "Home"]);
 ?>
 
