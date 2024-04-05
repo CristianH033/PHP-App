@@ -53,6 +53,6 @@ class TemplateEngine
 
     public function render(string $name, array $data = [])
     {
-        return $this->make($name)->render($data);
+        return Cache::function(fn () => $this->make($name)->render($data));
     }
 }
