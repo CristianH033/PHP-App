@@ -94,7 +94,8 @@
                     "Zend OPcache",
                     "zip",
                     "zlib",
-                    "xdebug"
+                    "xdebug",
+                    "apcu"
                 ]
             }
         }

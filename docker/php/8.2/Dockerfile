@@ -42,6 +42,9 @@ RUN docker-php-ext-install zip \
     bcmath \
     opcache;
 
+RUN pecl install apcu \
+    && docker-php-ext-enable apcu;
+
 RUN php -r 'var_dump(gd_info());'
 
 # Install composer
