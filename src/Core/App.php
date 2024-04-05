@@ -57,17 +57,11 @@ class App
     {
         Config::load('app');
         Config::load('views');
-        // Config::load('database');
-        // Config::load('routes');
+        Config::load('cache');
     }
 
     private function registerServices()
     {
         // Registrar proveedores de servicios
-    }
-
-    private function configureRouting()
-    {
-        // Configurar el enrutamiento
     }
 }
