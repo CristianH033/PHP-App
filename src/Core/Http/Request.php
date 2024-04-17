@@ -1,6 +1,6 @@
 <?php
 
-namespace NewsApp\Core;
+namespace NewsApp\Core\Http;
 
 class Request
 {

@@ -3,6 +3,7 @@
 namespace NewsApp\Core;
 
 use Exception;
+use NewsApp\Core\Http\Request;
 
 class App
 {

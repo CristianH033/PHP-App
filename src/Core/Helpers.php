@@ -3,7 +3,8 @@
 use NewsApp\Core\Config;
 use NewsApp\Core\Env;
 use NewsApp\Core\Exceptions\HttpException;
-use NewsApp\Core\Request;
+use NewsApp\Core\Http\Request;
+use NewsApp\Core\Http\Response;
 use NewsApp\Core\View;
 
 function env($key, $default = null): mixed
@@ -19,6 +20,11 @@ function config($key, $default = null): mixed
 function request(): Request
 {
     return (new Request());
+}
+
+function response(): Response
+{
+    return (new Response());
 }
 
 function abort(int $code, string $message = "Undefined error"): never

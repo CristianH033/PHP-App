@@ -1,8 +1,10 @@
 <?php
 
-namespace NewsApp\Core;
+namespace NewsApp\Core\Template;
 
-class TemplateEngine
+use NewsApp\Core\Cache;
+
+class Engine
 {
     protected $directory;
 

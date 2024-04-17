@@ -1,6 +1,6 @@
 <?php
 
-namespace NewsApp\Core;
+namespace NewsApp\Core\Template;
 
 use Exception;
 
@@ -16,7 +16,7 @@ class Template
     protected $sections;
     protected $sectionName;
 
-    public function __construct(TemplateEngine $engine, string $name, array $data = [])
+    public function __construct(Engine $engine, string $name, array $data = [])
     {
         $this->engine = $engine;
         $this->name = $name;

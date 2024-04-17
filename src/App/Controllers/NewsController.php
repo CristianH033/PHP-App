@@ -3,7 +3,7 @@
 namespace NewsApp\App\Controllers;
 
 use NewsApp\Core\Controller;
-use NewsApp\Core\Request;
+use NewsApp\Core\Http\Request;
 use NewsApp\Core\View;
 
 class NewsController extends Controller

@@ -2,17 +2,18 @@
 
 namespace NewsApp\Core;
 
-use NewsApp\Core\TemplateEngine;
+use NewsApp\Core\Http\Response;
+use NewsApp\Core\Template\Engine;
 use RuntimeException;
 
 class View
 {
     private static ?View $instance = null;
-    private TemplateEngine $engine;
+    private Engine $engine;
 
     private function __construct(string $viewsPath)
     {
-        $this->engine = new TemplateEngine($viewsPath);
+        $this->engine = new Engine($viewsPath);
     }
 
     public static function getInstance(string $viewsPath = null): self
@@ -35,7 +36,6 @@ class View
     {
         $instance = self::getInstance();
         return $instance->renderView($view, $data);
-        // echo self::make($view, $data);
     }
 
     private function makeView(string $view, array $data = []): string
@@ -47,15 +47,13 @@ class View
         return $this->engine->render($view, $data);
     }
 
-    private function renderView(string $view, array $data = []): void
+    private function renderView(string $view, array $data = [])
     {
         if (!$this->exists($view)) {
             throw new RuntimeException("La vista '{$view}' no existe.");
         }
 
-        ob_start();
-        echo $this->engine->render($view, $data);
-        ob_end_flush();
+        return Response::make()->setBody($this->engine->render($view, $data))->send();
     }
 
     private function exists(string $view): bool

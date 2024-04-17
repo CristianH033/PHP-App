@@ -3,6 +3,7 @@
 namespace NewsApp\Core;
 
 use NewsApp\Core\Exceptions\NotFoundException;
+use NewsApp\Core\Http\Request;
 
 class Router
 {
