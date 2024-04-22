@@ -59,6 +59,7 @@ class App
         Config::load('app');
         Config::load('views');
         Config::load('cache');
+        Config::load('log');
     }
 
     private function registerServices()
