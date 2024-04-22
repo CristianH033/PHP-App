@@ -48,10 +48,9 @@ class App
 
     private function loadEnvironmentVariables()
     {
-        $rootPath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
-        $envFile = '.env';
+        $envFile = rootPath() . DIRECTORY_SEPARATOR . '.env';
 
-        Env::load($rootPath, $envFile);
+        Env::load($envFile);
     }
 
     private function loadConfiguration()
