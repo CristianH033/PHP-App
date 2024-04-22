@@ -8,7 +8,7 @@ class Config
 
     public static function load(string $file)
     {
-        $filePath = dirname(__DIR__) . "/Config/{$file}.php";
+        $filePath = srcPath() . "/Config/{$file}.php";
         $filePath = realpath($filePath);
 
         if (is_file($filePath)) {
