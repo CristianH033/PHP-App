@@ -47,6 +47,11 @@ function rootPath(): string
     return dirname(__DIR__, 2);
 }
 
+function homePath(): string
+{
+    return realpath($_ENV['HOME'] ?? getcwd());
+}
+
 function publicPath(): string
 {
     return rootPath() . DIRECTORY_SEPARATOR . 'public';
@@ -55,6 +60,11 @@ function publicPath(): string
 function srcPath(): string
 {
     return rootPath() . DIRECTORY_SEPARATOR . 'src';
+}
+
+function arrayKeysExists(array $assocArray, array $keys): bool
+{
+    return count(array_intersect(array_keys($assocArray), $keys)) === count($keys);
 }
 
 function dd(...$args): void
